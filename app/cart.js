@@ -65,11 +65,9 @@ const total = cart.reduce(function(sum, item) {
     return sum + item.price;
 }, 0);
 
-// QA TRAINING: BG-001 - Intentional calculation defect
-const displayedTotal = total + 10;
 
 document.getElementById("cartTotal").textContent =
-    `Total: $${displayedTotal.toFixed(2)}`;
+    `Total: $${total.toFixed(2)}`;
 
 }
 

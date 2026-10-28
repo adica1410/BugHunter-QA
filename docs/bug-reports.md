@@ -13,7 +13,7 @@
 
 **Priority:** High
 
-**Status:** Open
+**Status:** Closed
 
 **Requirement ID:** FR-006
 
@@ -65,6 +65,38 @@ by $10.00 in cart.js.
 
 Screenshots captured during manual testing.
 
-### Retest Status
 
-Not Retested
+### Retest Results
+
+**Retest Status:** Passed
+
+**Defect Status:** Closed
+
+**Testing Method:** Manual Retesting
+
+**Environment:** Local HTML/JavaScript Application
+
+### Retest Scenarios
+
+| Test Scenario | Expected Result | Actual Result | Status |
+|---|---|---|---|
+| Empty shopping cart | $0.00 | $0.00 | Passed |
+| Add Gaming Controller | $39.99 | $39.99 | Passed |
+| Remove Gaming Controller | $0.00 | $0.00 | Passed |
+
+### Resolution
+
+The intentionally introduced $10.00 calculation
+error was removed from the cart.js file.
+
+The shopping cart now displays the correct
+total for all three retested scenarios.
+
+### Final QA Verification
+
+The original defect could not be reproduced
+during retesting.
+
+All three retest scenarios passed successfully.
+
+**Final Status:** Closed
