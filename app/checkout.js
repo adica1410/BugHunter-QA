@@ -1,4 +1,26 @@
 
+const savedCart = JSON.parse(
+    sessionStorage.getItem("checkoutCart") || "[]"
+);
+
+const orderItems = document.getElementById("orderItems");
+const orderTotal = document.getElementById("orderTotal");
+
+let total = 0;
+
+savedCart.forEach(function(item) {
+    const li = document.createElement("li");
+
+    li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+
+    orderItems.appendChild(li);
+
+    total += item.price;
+});
+
+orderTotal.textContent = `Total: $${total.toFixed(2)}`;
+
+
 const checkoutForm = document.getElementById("checkoutForm");
 
 checkoutForm.addEventListener("submit", function(event) {
@@ -18,7 +40,11 @@ if (!postalCodePattern.test(zipCode)) {
 }
 
 
-    alert("Order placed successfully!");
+    
+sessionStorage.removeItem("checkoutCart");
 
-    checkoutForm.reset();
+checkoutForm.reset();
+
+window.location.href = "confirmation.html";
+
 });

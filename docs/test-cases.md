@@ -171,3 +171,64 @@ The browser blocked form submission and displayed
 **Environment:** Local Web Application / Microsoft Edge
 
 **Validation Type:** Native HTML5 Required Field Validation
+
+
+---
+
+## TC-006: Complete Purchase Flow
+
+**Requirement IDs:** FR-001, FR-003, FR-004, FR-006, FR-007
+
+**Test Type:** End-to-End / Functional / Positive Testing
+
+**Priority:** High
+
+**Preconditions:**
+- The application is running.
+- A valid demo user account is available.
+- The shopping cart is initially empty.
+
+**Test Data:**
+- Email: test@bughunter.local
+- Password: Test123!
+- Product: Wireless Headphones
+- Product Price: $49.99
+- Full Name: Test User
+- Shipping Address: 123 Test Street
+- City: Sarajevo
+- Postal Code: 71000
+
+**Test Steps:**
+1. Open the BugHunter Shop login page.
+2. Log in using valid demo credentials.
+3. Verify navigation to the Products page.
+4. Add Wireless Headphones to the cart.
+5. Verify the cart contains one item.
+6. Verify the total price is $49.99.
+7. Click Proceed to Checkout.
+8. Verify the Order Summary displays the correct product and price.
+9. Complete the shipping information form.
+10. Click Place Order.
+11. Verify navigation to the Order Confirmation page.
+
+**Expected Result:**
+- Login succeeds.
+- The selected product appears in the cart.
+- The displayed total is $49.99.
+- Checkout shows the correct product and total.
+- The shipping form accepts valid test data.
+- The Order Confirmation page is displayed.
+
+**Actual Result:**
+The user completed the demo purchase flow,
+and the Order Confirmation page was displayed.
+
+**Status:** Passed
+
+**Execution Method:** Manual Testing
+
+**Environment:** Local Web Application / Microsoft Edge
+
+**Note:**
+The checkout process is simulated.
+No real payment or server-side order processing occurs.

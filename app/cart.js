@@ -69,6 +69,20 @@ const total = cart.reduce(function(sum, item) {
 document.getElementById("cartTotal").textContent =
     `Total: $${total.toFixed(2)}`;
 
+    document.getElementById("checkoutButton").disabled =
+    cart.length === 0;
+
 }
+
+function goToCheckout() {
+    if (cart.length === 0) {
+        return;
+    }
+
+    sessionStorage.setItem("checkoutCart", JSON.stringify(cart));
+
+    window.location.href = "checkout.html";
+}
+
 
 
