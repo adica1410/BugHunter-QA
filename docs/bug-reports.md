@@ -100,3 +100,60 @@ during retesting.
 All three retest scenarios passed successfully.
 
 **Final Status:** Closed
+
+
+---
+
+## BG-002: Invalid Postal Code Accepted During Checkout
+
+**Bug ID:** BG-002
+
+**Title:** Checkout accepts alphabetic postal codes
+
+**Type:** Functional / Input Validation
+
+**Severity:** Medium
+
+**Priority:** High
+
+**Status:** Closed
+
+**Requirement ID:** FR-009
+
+
+### Retest Results
+
+**Retest Status:** Passed
+
+**Defect Status:** Closed
+
+**Testing Method:** Manual Testing
+
+**Environment:** Local Web Application / Microsoft Edge
+
+### Test Execution Results
+
+| Postal Code | Expected Result | Actual Result | Status |
+|---|---|---|---|
+| ABCDE | Rejected | Rejected | Passed |
+| 71000 | Accepted | Accepted | Passed |
+| 123 | Rejected | Rejected | Passed |
+| 123456 | Rejected | Rejected | Passed |
+| 71A00 | Rejected | Rejected | Passed |
+
+### Resolution
+
+Added postal code format validation
+in checkout.js using a regular expression.
+
+The application now accepts only postal codes
+containing exactly five numeric digits.
+
+### Final QA Verification
+
+The original BG-002 defect could not be
+reproduced after the fix.
+
+All five validation scenarios passed.
+
+**Final Status:** Closed

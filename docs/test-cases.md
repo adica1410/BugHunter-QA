@@ -127,3 +127,47 @@ The cart count and total price updated correctly.
 **Execution Method:** Manual Testing
 
 **Environment:** Local HTML/JavaScript application
+
+
+---
+
+## TC-004: Checkout with Empty Required Fields
+
+**Requirement ID:** FR-008
+
+**Test Type:** Functional / Negative Testing
+
+**Priority:** High
+
+**Preconditions:**
+- The Checkout page is open.
+- All shipping information fields are empty.
+
+**Test Data:**
+- Full Name: Empty
+- Shipping Address: Empty
+- City: Empty
+- Postal Code: Empty
+
+**Test Steps:**
+1. Open the Checkout page.
+2. Leave all required fields empty.
+3. Click the Place Order button.
+
+**Expected Result:**
+The browser prevents form submission and displays
+a required-field validation message.
+
+No order success message should appear.
+
+**Actual Result:**
+The browser blocked form submission and displayed
+"Please fill out this field." for the Full Name field.
+
+**Status:** Passed
+
+**Execution Method:** Manual Testing
+
+**Environment:** Local Web Application / Microsoft Edge
+
+**Validation Type:** Native HTML5 Required Field Validation

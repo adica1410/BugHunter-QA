@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Checkout | BugHunter Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>BugHunter Shop</h1>
+        <p>Secure Checkout Demo</p>
+    </header>
+
+    <main>
+        <h2>Complete Your Order</h2>
+        <p class="subtitle">
+            Enter your information to continue.
+        </p>
+
+        <section class="checkout-card">
+            <h2>Shipping Information</h2>
+
+            <form id="checkoutForm">
+
+                <label for="fullName">Full Name</label>
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+                <label for="address">Shipping Address</label>
+                <input
+                    type="text"
+                    id="address"
+                    placeholder="Enter your address"
+                    required
+                >
+
+                <label for="city">City</label>
+                <input
+                    type="text"
+                    id="city"
+                    placeholder="Enter your city"
+                    required
+                >
+
+                <label for="zipCode">Postal Code</label>
+                <input
+                    type="text"
+                    id="zipCode"
+                    placeholder="Enter postal code"
+                    required
+                >
+
+                <button type="submit">
+                    Place Order
+                </button>
+
+            </form>
+        </section>
+    </main>
+    <script src="checkout.js"></script>
+
+</body>
+</html>

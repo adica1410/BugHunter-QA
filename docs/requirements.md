@@ -27,6 +27,18 @@ all required information.
 FR-008: Users cannot complete checkout when
 required information is missing.
 
+
+FR-009: The checkout postal code must contain
+exactly five numeric digits.
+
+The application must reject postal codes
+containing letters, special characters,
+or an incorrect number of digits.
+
+Accepted example: 71000
+Rejected examples: ABCDE, 123, 123456, 71A00
+
+
 ## Project Scope
 
 This application is for educational testing only.
