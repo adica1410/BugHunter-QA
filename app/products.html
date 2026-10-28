@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | BugHunter Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>BugHunter Shop</h1>
+        <p>Explore Our Products</p>
+    </header>
+
+    <main>
+        <h2>Our Products</h2>
+        <p class="subtitle">
+            Find something you love!
+        </p>
+        <p id="cartCount">🛒 Cart: 0 items</p>
+        <section class="cart-summary">
+    <h3>Shopping Cart</h3>
+    <ul id="cartItems"></ul>
+    <p id="cartTotal">Total: $0.00</p>
+</section>
+
+        <section class="products-container">
+
+            <article class="product-card">
+                <div class="product-icon">🎧</div>
+                <h3>Wireless Headphones</h3>
+                <p>High-quality wireless headphones.</p>
+                <p class="price">$49.99</p>
+                <button type="button" onclick="addToCart('headphones')">
+    Add to Cart
+</button>
+            </article>
+
+            <article class="product-card">
+                <div class="product-icon">⌚</div>
+                <h3>Smart Watch</h3>
+                <p>Track your daily activities.</p>
+                <p class="price">$79.99</p>
+                <button type="button" onclick="addToCart('watch')">
+    Add to Cart
+</button>
+            </article>
+
+            <article class="product-card">
+                <div class="product-icon">🎮</div>
+                <h3>Gaming Controller</h3>
+                <p>Enjoy your favorite games.</p>
+                <p class="price">$39.99</p>
+                <button type="button" onclick="addToCart('controller')">
+    Add to Cart
+</button>
+            </article>
+
+        </section>
+    </main>
+    <script src="cart.js"></script>
+
+</body>
+</html>

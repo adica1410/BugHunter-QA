@@ -1,0 +1,129 @@
+
+# BugHunter Shop – Manual Test Cases
+
+## TC-001: Successful Login
+
+**Requirement ID:** FR-001
+
+**Test Type:** Functional / Positive Testing
+
+**Priority:** High
+
+**Preconditions:**
+- The application is running.
+- A valid test user account exists.
+
+**Test Data:**
+- Email: test@bughunter.local
+- Password: Test123!
+
+**Test Steps:**
+1. Open the BugHunter Shop application.
+2. Navigate to the login page.
+3. Enter the valid email address.
+4. Enter the valid password.
+5. Click the Login button.
+
+**Expected Result:**
+The user is successfully authenticated and
+redirected to the products page.
+
+
+**Actual Result:**
+The application displayed a successful login message
+and redirected the user to the products page.
+
+**Status:** Passed
+
+**Execution Method:** Manual Testing
+
+**Browser:** Google Chrome
+
+**Environment:** Local HTML/JavaScript application
+
+
+
+
+
+
+
+## TC-002: Login with Invalid Password
+
+**Requirement ID:** FR-002
+
+**Test Type:** Functional / Negative Testing
+
+**Priority:** High
+
+**Preconditions:**
+- The application is running.
+- A valid test user account exists.
+
+**Test Data:**
+- Email: test@bughunter.local
+- Password: Wrong123!
+
+**Test Steps:**
+1. Open the BugHunter Shop application.
+2. Enter the valid email address.
+3. Enter an incorrect password.
+4. Click the Login button.
+
+**Expected Result:**
+The application rejects the login attempt and
+displays "Invalid email or password."
+
+**Actual Result:**
+The application displayed "Invalid email or password."
+
+**Status:** Passed
+
+**Evidence:** Screenshot captured during manual testing.
+
+
+
+
+
+---
+
+## TC-003: Remove Product from Shopping Cart
+
+**Requirement ID:** FR-005, FR-006
+
+**Test Type:** Functional / Positive Testing
+
+**Priority:** High
+
+**Preconditions:**
+- The BugHunter Shop application is running.
+- The products page is open.
+- The shopping cart is initially empty.
+
+**Test Data:**
+- Wireless Headphones: $49.99
+- Smart Watch: $79.99
+
+**Test Steps:**
+1. Open the products page.
+2. Add Wireless Headphones to the cart.
+3. Add Smart Watch to the cart.
+4. Verify that the cart contains 2 items.
+5. Verify that the total price is $129.98.
+6. Click Remove next to Smart Watch.
+7. Verify the remaining cart contents and total.
+
+**Expected Result:**
+- Smart Watch is removed from the cart.
+- Wireless Headphones remains in the cart.
+- The cart count decreases from 2 to 1.
+- The total price updates to $49.99.
+
+**Actual Result:**
+The Smart Watch was successfully removed.
+The cart count and total price updated correctly.
+
+**Status:** Passed
+
+**Execution Method:** Manual Testing
+
+**Environment:** Local HTML/JavaScript application
