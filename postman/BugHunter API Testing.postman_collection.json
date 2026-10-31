@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "c0fa815e-f8a9-4542-9331-2ca9923e5de5",
+		"name": "BugHunter API Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Product Not Found - 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"API-LOCAL-005: Product not found returns 404\", function () {\r",
+							"\r",
+							"    pm.response.to.have.status(404);\r",
+							"\r",
+							"    const data = pm.response.json();\r",
+							"\r",
+							"    pm.expect(data.message).to.eql(\"Product not found\");\r",
+							"\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products/999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Products – 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"API-LOCAL-001: Status is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"API-LOCAL-002: Returns exactly 3 products\", function () {\r",
+							"    const products = pm.response.json();\r",
+							"\r",
+							"    pm.expect(products).to.be.an(\"array\");\r",
+							"    pm.expect(products).to.have.lengthOf(3);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"API-LOCAL-003: Headphones price is correct\", function () {\r",
+							"    const products = pm.response.json();\r",
+							"\r",
+							"    const headphones = products.find(\r",
+							"        product => product.id === 1\r",
+							"    );\r",
+							"\r",
+							"    pm.expect(headphones).to.exist;\r",
+							"    pm.expect(headphones.price).to.eql(49.99);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Product by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"API-LOCAL-006: Status is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"API-LOCAL-007: Product ID is 2\", function () {\r",
+							"    const product = pm.response.json();\r",
+							"\r",
+							"    pm.expect(product.id).to.eql(2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"API-LOCAL-008: Product name is Smart Watch\", function () {\r",
+							"    const product = pm.response.json();\r",
+							"\r",
+							"    pm.expect(product.name).to.eql(\"Smart Watch\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"API-LOCAL-009: Product price is correct\", function () {\r",
+							"    const product = pm.response.json();\r",
+							"\r",
+							"    pm.expect(product.price).to.eql(79.99);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/products/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"products",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

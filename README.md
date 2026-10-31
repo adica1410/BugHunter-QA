@@ -175,3 +175,69 @@ the HTML test report as an artifact.
 This project was developed for hands-on learning
 and to demonstrate foundational software quality
 assurance skills through a practical portfolio.
+
+
+---
+
+## API Testing – BugHunter Products API
+
+This project includes a REST API built with Node.js
+and Express for practicing API testing.
+
+### API Endpoints
+
+| Method | Endpoint | Expected Status |
+|--------|----------|-----------------|
+| GET | /api/products | 200 OK |
+| GET | /api/products/2 | 200 OK |
+| GET | /api/products/999 | 404 Not Found |
+
+### Running the API Locally
+
+Install dependencies:
+
+```bash
+npm ci
+```
+
+Start the API server:
+
+```bash
+node api/server.js
+```
+
+Base URL:
+
+`http://localhost:3000`
+
+### Postman API Testing
+
+The project includes a Postman collection with
+three GET requests and eight automated assertions.
+
+Test coverage includes:
+- Successful HTTP responses
+- Product list validation
+- Product ID verification
+- Product name and price verification
+- Negative testing with HTTP 404
+
+**Last verified local result: 8/8 tests passed.**
+
+### Running the Postman Collection
+
+1. Start the local API server.
+2. Open Postman.
+3. Import the collection from the `postman/` folder.
+4. Open the BugHunter API Testing collection.
+5. Select Run.
+6. Execute all three requests using Collection Runner.
+
+### Postman Collection
+
+
+`postman/BugHunter API Testing.postman_collection.json`
+
+
+Note: The API uses in-memory demo data.
+It does not currently connect to a database.
