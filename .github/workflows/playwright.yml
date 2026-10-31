@@ -19,8 +19,9 @@ jobs:
       run: npx playwright install --with-deps
     
     
+   
     - name: Run BugHunter QA automated tests
-      run: npx playwright test tests/login.spec.js tests/cart.spec.js tests/checkout.spec.js tests/access.spec.js --project=chromium
+      run: npx playwright test tests/login.spec.js tests/cart.spec.js tests/checkout.spec.js tests/access.spec.js tests/products-api.spec.js --project=chromium
 
 
     - uses: actions/upload-artifact@v4

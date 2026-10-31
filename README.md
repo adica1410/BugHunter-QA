@@ -71,6 +71,20 @@ Documentation:
 | AUT-006 | Complete simulated purchase flow | PASS |
 | AUT-007 | Unauthorized access redirects to login | PASS |
 
+| API-010 | GET all BugHunter products | PASS |
+| API-011 | GET product by ID | PASS |
+| API-012 | GET nonexistent product returns 404 | PASS |
+
+
+**Latest local Playwright result: 10/10 tests passed.**
+
+Test suite includes 7 browser UI tests and
+3 API tests against the local Express server.
+
+The Playwright configuration automatically starts
+both the frontend and API servers.
+
+
 **Latest verified CI execution: 7/7 tests passed.**
 
 Automated tests run in Chromium through GitHub Actions.
@@ -141,7 +155,9 @@ npx playwright install
 
 ```bash
 
-npx playwright test tests/login.spec.js tests/cart.spec.js tests/checkout.spec.js tests/access.spec.js --project=chromium
+
+npx playwright test tests/login.spec.js tests/cart.spec.js tests/checkout.spec.js tests/access.spec.js tests/products-api.spec.js --project=chromium
+
 
 ```
 

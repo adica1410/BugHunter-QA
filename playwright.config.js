@@ -72,12 +72,22 @@ export default defineConfig({
   ],
 
   
-webServer: {
-  command: 'npx http-server . -p 5500 -a 127.0.0.1 -c-1',
-  url: 'http://127.0.0.1:5500/app/index.html',
-  reuseExistingServer: !process.env.CI,
-  timeout: 30000,
-},
+
+webServer: [
+  {
+    command: 'npx http-server . -p 5500 -a 127.0.0.1 -c-1',
+    url: 'http://127.0.0.1:5500/app/index.html',
+    reuseExistingServer: !process.env.CI,
+    timeout: 30000,
+  },
+  {
+    command: 'node api/server.js',
+    url: 'http://127.0.0.1:3000/api/products',
+    reuseExistingServer: !process.env.CI,
+    timeout: 30000,
+  },
+],
+
 
 });
 
