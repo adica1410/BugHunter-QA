@@ -58,16 +58,23 @@ Documentation:
 - [Bug Reports](docs/bug-reports.md)
 - [Regression Test Report](docs/regression-report.md)
 
+
 ## Automated Test Coverage
 
-| Test ID | Test Scenario |
-|---|---|
-| AUT-001 | Successful login |
-| AUT-002 | Login with invalid password |
-| AUT-003 | Add product to shopping cart |
-| AUT-004 | Remove product from shopping cart |
-| AUT-005 | Reject invalid postal code |
-| AUT-006 | Complete simulated purchase flow |
+| Test ID | Test Scenario | Result |
+|---------|---------------|--------|
+| AUT-001 | Successful login | PASS |
+| AUT-002 | Invalid login credentials | PASS |
+| AUT-003 | Add product to shopping cart | PASS |
+| AUT-004 | Remove product from shopping cart | PASS |
+| AUT-005 | Reject invalid postal code | PASS |
+| AUT-006 | Complete simulated purchase flow | PASS |
+| AUT-007 | Unauthorized access redirects to login | PASS |
+
+**Latest verified CI execution: 7/7 tests passed.**
+
+Automated tests run in Chromium through GitHub Actions.
+
 
 **Latest verified CI execution: 6/6 tests passed.**
 
@@ -75,7 +82,7 @@ Automated tests run in Chromium through GitHub Actions.
 
 ## Defect Management
 
-Two defects were documented and resolved.
+Three defects were documented and resolved.
 
 ### BG-001: Incorrect Shopping Cart Total
 
@@ -94,6 +101,28 @@ demo application's five-digit validation requirement.
 Input validation was implemented and verified
 using positive, negative, and boundary tests.
 
+
+### BG-003: Unauthorized Products Access
+
+Manual testing revealed that users could open
+the Products page without completing demo login.
+
+A new access-control requirement (FR-010) was defined,
+and a negative test case (TC-007) was documented.
+
+Client-side session validation was implemented
+using sessionStorage.
+
+Manual retesting confirmed that users without
+an active demo login session are redirected
+to the Login page.
+
+AUT-007 was added to the Playwright test suite.
+
+Note: This is educational client-side access control,
+not production-grade security.
+
+
 ## Run Automated Tests
 
 ### Prerequisites
@@ -111,7 +140,9 @@ npx playwright install
 ### Run BugHunter Tests
 
 ```bash
-npx playwright test tests/login.spec.js tests/cart.spec.js tests/checkout.spec.js --project=chromium
+
+npx playwright test tests/login.spec.js tests/cart.spec.js tests/checkout.spec.js tests/access.spec.js --project=chromium
+
 ```
 
 Playwright automatically starts the local application
@@ -135,7 +166,7 @@ the HTML test report as an artifact.
 ## Project Status
 
 - Manual testing completed for documented scenarios
-- Six automated tests implemented and verified
+- Seven automated tests implemented and verified
 - GitHub Actions CI successfully configured
 - Additional testing and improvements planned
 
