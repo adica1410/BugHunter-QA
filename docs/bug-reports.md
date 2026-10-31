@@ -157,3 +157,102 @@ reproduced after the fix.
 All five validation scenarios passed.
 
 **Final Status:** Closed
+
+
+---
+
+## BG-003: Products Page Accessible Without Login
+
+**Bug ID:** BG-003
+
+**Title:** Unauthenticated users can access the Products page
+
+**Type:** Functional / Access Control
+
+**Severity:** Medium
+
+**Priority:** Medium
+
+**Status:** Closed
+
+**Requirement ID:** FR-010
+
+**Related Test Case:** TC-007
+
+**Environment:**
+- Application: BugHunter Shop
+- Platform: Windows
+- Testing Method: Manual Testing
+- Browser: Private Browser Session
+- Server: Local Development Server
+
+### Description
+
+The Products page can be accessed directly
+without completing the demo login process.
+
+According to FR-010, the application should
+redirect users without an active demo login
+session to the Login page.
+
+### Steps to Reproduce
+
+1. Start the BugHunter Shop application.
+2. Open a new private browser window.
+3. Navigate directly to:
+   http://127.0.0.1:5500/app/products.html
+4. Observe the displayed page.
+
+### Expected Result
+
+The user is redirected to the Login page.
+
+### Actual Result
+
+The Products page is displayed without login.
+
+### Impact
+
+The application does not enforce its
+documented demo login navigation rule.
+
+### Root Cause
+
+The Products page did not check whether a user
+had completed the demo login process.
+
+### Evidence
+
+Manual testing confirmed direct access
+to the Products page in a private session.
+
+### Resolution
+
+Implemented client-side demo session tracking
+using sessionStorage.
+
+Successful login sets the bughunterLoggedIn flag.
+
+The Products page checks this flag and redirects
+unauthenticated users to index.html.
+
+
+### Retest Status
+
+Passed
+
+Manual retesting confirmed:
+- Unauthenticated users are redirected to Login.
+- Authenticated demo users can access Products.
+
+Automated testing confirmed:
+- AUT-007: Unauthorized access redirects to login — PASS.
+
+Regression testing:
+- 7/7 Playwright tests passed locally in Chromium.
+
+### Security Note
+
+The sessionStorage implementation is for
+educational purposes only. It does not provide
+secure server-side authentication or authorization.

@@ -57,3 +57,69 @@ scenarios and does not represent complete
 application test coverage.
 
 **Final Result:** Passed
+
+
+---
+
+## Regression Test Report – BG-003 Fix
+
+### Test Objective
+
+Verify that the implementation of demo login session
+validation does not break existing application functionality.
+
+### Change Under Test
+
+BG-003: Products Page Accessible Without Login
+
+Implemented client-side session validation using
+sessionStorage and automatic redirection to Login
+for unauthenticated users.
+
+### Test Environment
+
+- Application: BugHunter Shop
+- Test Framework: Playwright
+- Browser: Chromium
+- Execution: Local
+- Test Type: Automated Regression Testing
+
+### Automated Regression Results
+
+| Test ID | Test Scenario | Result |
+|---------|---------------|--------|
+| AUT-001 | Successful login | PASS |
+| AUT-002 | Invalid login credentials | PASS |
+| AUT-003 | Add product to cart | PASS |
+| AUT-004 | Remove product from cart | PASS |
+| AUT-005 | Reject invalid postal code | PASS |
+| AUT-006 | Complete demo purchase | PASS |
+| AUT-007 | Unauthorized access redirects to login | PASS |
+
+### Test Summary
+
+- Total Automated Tests: 7
+- Passed: 7
+- Failed: 0
+- Skipped: 0
+- Browser: Chromium
+- Overall Result: PASS
+
+### Manual Retesting
+
+TC-007: PASS
+
+Verified scenarios:
+- Direct Products access without login redirects to Login.
+- Successful demo login allows access to Products.
+
+### Conclusion
+
+All seven automated tests passed locally after
+the BG-003 fix.
+
+No regressions were detected in the tested scenarios.
+
+The client-side session mechanism is intended
+for educational testing and does not provide
+production-grade access control.

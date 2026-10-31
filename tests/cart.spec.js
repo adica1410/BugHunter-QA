@@ -3,6 +3,12 @@ const { test, expect } = require('@playwright/test');
 
 test('AUT-003: Add product to shopping cart', async ({ page }) => {
 
+    
+await page.addInitScript(() => {
+    sessionStorage.setItem("bughunterLoggedIn", "true");
+});
+
+
     // Open the products page
     await page.goto('http://127.0.0.1:5500/app/products.html');
 
@@ -34,6 +40,12 @@ test('AUT-003: Add product to shopping cart', async ({ page }) => {
 
 
 test('AUT-004: Remove product from shopping cart', async ({ page }) => {
+
+    
+    await page.addInitScript(() => {
+        sessionStorage.setItem("bughunterLoggedIn", "true");
+    });
+
 
     // Open the products page
     await page.goto('http://127.0.0.1:5500/app/products.html');

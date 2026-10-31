@@ -10,14 +10,15 @@ loginForm.addEventListener("submit", function (event) {
     const validEmail = "test@bughunter.local";
     const validPassword = "Test123!";
 
-    
-if (email === validEmail && password === validPassword) {
-    alert("Login successful! Welcome to BugHunter Shop.");
+    if (email === validEmail && password === validPassword) {
+        alert("Login successful! Welcome to BugHunter Shop.");
 
-    sessionStorage.setItem("isLoggedIn", "true");
-    window.location.href = "products.html";
-} else {
-    alert("Invalid email or password.");
-}
+        // Save successful demo login session
+        sessionStorage.setItem("bughunterLoggedIn", "true");
 
+        // Redirect to Products page
+        window.location.href = "products.html";
+    } else {
+        alert("Invalid email or password.");
+    }
 });

@@ -43,3 +43,18 @@ Rejected examples: ABCDE, 123, 123456, 71A00
 
 This application is for educational testing only.
 No real payments or personal customer data are used.
+
+
+
+### FR-010: Restricted Access to Products Page
+
+The BugHunter Shop demo requires users to log in
+before accessing the Products page.
+
+Users without an active demo login session
+must be redirected to the Login page.
+
+Access control in this client-side demo is
+for educational testing purposes only.
+
+It does not provide production-grade security.

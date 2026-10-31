@@ -232,3 +232,51 @@ and the Order Confirmation page was displayed.
 **Note:**
 The checkout process is simulated.
 No real payment or server-side order processing occurs.
+
+
+---
+
+## TC-007: Unauthorized Access to Products Page
+
+**Requirement ID:** FR-010
+
+**Test Type:** Functional / Negative Testing
+
+**Priority:** High
+
+**Preconditions:**
+- BugHunter Shop is running.
+- The user is not logged in.
+- A new private browser session is opened.
+
+**Test Data:**
+- URL: http://127.0.0.1:5500/app/products.html
+- Authentication Status: Not Authenticated
+
+**Test Steps:**
+1. Open a private browser window.
+2. Navigate directly to the Products page URL.
+3. Observe whether the Products page is displayed.
+4. Check whether the user is redirected to Login.
+
+**Expected Result:**
+The unauthenticated user must be redirected
+to the Login page.
+
+The Products page must not be accessible
+without an active demo login session.
+
+**Actual Result:**
+The Products page opened successfully
+without requiring login.
+
+**Status:** Failed
+
+**Execution Method:** Manual Testing
+
+**Environment:** Local Web Application / Private Browser Window
+
+**Note:**
+This test evaluates demo-level access control.
+The application does not provide server-side
+authentication or production-grade security.
